@@ -1,8 +1,8 @@
 FROM ubuntu:18.04
 
-ADD . apache-ofbiz-17.12.04 
+ADD . apache-ofbiz 
 
-WORKDIR apache-ofbiz-17.12.04
+WORKDIR apache-ofbiz
 
 # Install OpenJDK-8
 RUN apt-get update && \
@@ -25,10 +25,10 @@ RUN export JAVA_HOME
 RUN chmod +x ./gradlew
 
 #for passing in entity engine config
-VOLUME apache-ofbiz-17.12.04/framework/entity/config/
+VOLUME apache-ofbiz/framework/entity/config/
 
 #for Derby Database
-VOLUME apache-ofbiz-17.12.04/runtime/data
+VOLUME apache-ofbiz/runtime/data
 
 #Expose port 
 EXPOSE 8443
